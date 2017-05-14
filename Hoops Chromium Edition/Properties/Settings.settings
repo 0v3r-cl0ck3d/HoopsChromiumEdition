@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Hoops_Chromium_Edition.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MediaItUrlString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.youtube.com/results?search_query=</Value>
+    </Setting>
+    <Setting Name="SearchItUrlString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.google.co.uk/search?q=</Value>
+    </Setting>
+    <Setting Name="MediaItButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">YouTube it</Value>
+    </Setting>
+    <Setting Name="SearchItButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Google it</Value>
+    </Setting>
+    <Setting Name="CustomTitleText" Type="System.String" Scope="User">
+      <Value Profile="(Default)"> </Value>
+    </Setting>
+    <Setting Name="PlaceHolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MainPanelColour_R" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
+    <Setting Name="MainPanelColour_G" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">255</Value>
+    </Setting>
+    <Setting Name="MainPanelColour_B" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">243</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
