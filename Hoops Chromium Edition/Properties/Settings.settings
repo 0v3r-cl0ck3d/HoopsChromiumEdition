@@ -15,7 +15,7 @@
       <Value Profile="(Default)">Google it</Value>
     </Setting>
     <Setting Name="CustomTitleText" Type="System.String" Scope="User">
-      <Value Profile="(Default)"> </Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PlaceHolder" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -28,6 +28,9 @@
     </Setting>
     <Setting Name="MainPanelColour_B" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">243</Value>
+    </Setting>
+    <Setting Name="UrlBoxSizeInPercent" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">33</Value>
     </Setting>
   </Settings>
 </SettingsFile>

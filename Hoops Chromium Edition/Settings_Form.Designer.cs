@@ -39,15 +39,17 @@
             this.SetSearchtoGoogleButton = new System.Windows.Forms.Button();
             this.MiscSettingsPanel = new System.Windows.Forms.Panel();
             this.MiscSettingsLayoutPannel = new System.Windows.Forms.TableLayoutPanel();
+            this.SetCUstomTitleStringLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SetCustomTitleTextStringButton = new System.Windows.Forms.Button();
             this.SetCustomTitleTextBox = new System.Windows.Forms.TextBox();
-            this.SetCUstomTitleStringLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CustomPanelColoursPanel = new System.Windows.Forms.Panel();
-            this.CustomPanelColoursLabel = new System.Windows.Forms.Label();
-            this.CustomPanelsColourRGB_R = new System.Windows.Forms.NumericUpDown();
-            this.CustomPanelsColourRGB_G = new System.Windows.Forms.NumericUpDown();
-            this.CustomPanelsColourRGB_B = new System.Windows.Forms.NumericUpDown();
             this.SavePanelColoursButton = new System.Windows.Forms.Button();
+            this.CustomPanelsColourRGB_B = new System.Windows.Forms.NumericUpDown();
+            this.CustomPanelsColourRGB_G = new System.Windows.Forms.NumericUpDown();
+            this.CustomPanelsColourRGB_R = new System.Windows.Forms.NumericUpDown();
+            this.CustomPanelColoursLabel = new System.Windows.Forms.Label();
+            this.ResetHistoryButtonTabeLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.ResetHistoryButton = new System.Windows.Forms.Button();
             this.LayoutPanel.SuspendLayout();
             this.SetSerachStringsPanel.SuspendLayout();
             this.SearchButtonLayoutPanel.SuspendLayout();
@@ -55,9 +57,10 @@
             this.MiscSettingsLayoutPannel.SuspendLayout();
             this.SetCUstomTitleStringLayoutPanel.SuspendLayout();
             this.CustomPanelColoursPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_R)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_G)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_B)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_G)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_R)).BeginInit();
+            this.ResetHistoryButtonTabeLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // LayoutPanel
@@ -190,14 +193,34 @@
             this.MiscSettingsLayoutPannel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MiscSettingsLayoutPannel.Controls.Add(this.SetCUstomTitleStringLayoutPanel, 0, 0);
             this.MiscSettingsLayoutPannel.Controls.Add(this.CustomPanelColoursPanel, 0, 1);
+            this.MiscSettingsLayoutPannel.Controls.Add(this.ResetHistoryButtonTabeLayout, 0, 2);
             this.MiscSettingsLayoutPannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MiscSettingsLayoutPannel.Location = new System.Drawing.Point(0, 0);
             this.MiscSettingsLayoutPannel.Name = "MiscSettingsLayoutPannel";
-            this.MiscSettingsLayoutPannel.RowCount = 2;
+            this.MiscSettingsLayoutPannel.RowCount = 4;
             this.MiscSettingsLayoutPannel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.MiscSettingsLayoutPannel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.MiscSettingsLayoutPannel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.MiscSettingsLayoutPannel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MiscSettingsLayoutPannel.Size = new System.Drawing.Size(280, 187);
             this.MiscSettingsLayoutPannel.TabIndex = 0;
+            this.MiscSettingsLayoutPannel.Paint += new System.Windows.Forms.PaintEventHandler(this.MiscSettingsLayoutPannel_Paint);
+            // 
+            // SetCUstomTitleStringLayoutPanel
+            // 
+            this.SetCUstomTitleStringLayoutPanel.ColumnCount = 1;
+            this.SetCUstomTitleStringLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SetCUstomTitleStringLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SetCUstomTitleStringLayoutPanel.Controls.Add(this.SetCustomTitleTextStringButton, 0, 1);
+            this.SetCUstomTitleStringLayoutPanel.Controls.Add(this.SetCustomTitleTextBox, 0, 0);
+            this.SetCUstomTitleStringLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SetCUstomTitleStringLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.SetCUstomTitleStringLayoutPanel.Name = "SetCUstomTitleStringLayoutPanel";
+            this.SetCUstomTitleStringLayoutPanel.RowCount = 2;
+            this.SetCUstomTitleStringLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SetCUstomTitleStringLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SetCUstomTitleStringLayoutPanel.Size = new System.Drawing.Size(274, 59);
+            this.SetCUstomTitleStringLayoutPanel.TabIndex = 2;
             // 
             // SetCustomTitleTextStringButton
             // 
@@ -218,22 +241,6 @@
             this.SetCustomTitleTextBox.Size = new System.Drawing.Size(268, 20);
             this.SetCustomTitleTextBox.TabIndex = 2;
             // 
-            // SetCUstomTitleStringLayoutPanel
-            // 
-            this.SetCUstomTitleStringLayoutPanel.ColumnCount = 1;
-            this.SetCUstomTitleStringLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SetCUstomTitleStringLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SetCUstomTitleStringLayoutPanel.Controls.Add(this.SetCustomTitleTextStringButton, 0, 1);
-            this.SetCUstomTitleStringLayoutPanel.Controls.Add(this.SetCustomTitleTextBox, 0, 0);
-            this.SetCUstomTitleStringLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SetCUstomTitleStringLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.SetCUstomTitleStringLayoutPanel.Name = "SetCUstomTitleStringLayoutPanel";
-            this.SetCUstomTitleStringLayoutPanel.RowCount = 2;
-            this.SetCUstomTitleStringLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SetCUstomTitleStringLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SetCUstomTitleStringLayoutPanel.Size = new System.Drawing.Size(274, 59);
-            this.SetCUstomTitleStringLayoutPanel.TabIndex = 2;
-            // 
             // CustomPanelColoursPanel
             // 
             this.CustomPanelColoursPanel.Controls.Add(this.SavePanelColoursButton);
@@ -244,17 +251,42 @@
             this.CustomPanelColoursPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.CustomPanelColoursPanel.Location = new System.Drawing.Point(3, 68);
             this.CustomPanelColoursPanel.Name = "CustomPanelColoursPanel";
-            this.CustomPanelColoursPanel.Size = new System.Drawing.Size(274, 53);
+            this.CustomPanelColoursPanel.Size = new System.Drawing.Size(274, 49);
             this.CustomPanelColoursPanel.TabIndex = 3;
             // 
-            // CustomPanelColoursLabel
+            // SavePanelColoursButton
             // 
-            this.CustomPanelColoursLabel.AutoSize = true;
-            this.CustomPanelColoursLabel.Location = new System.Drawing.Point(4, 4);
-            this.CustomPanelColoursLabel.Name = "CustomPanelColoursLabel";
-            this.CustomPanelColoursLabel.Size = new System.Drawing.Size(143, 13);
-            this.CustomPanelColoursLabel.TabIndex = 0;
-            this.CustomPanelColoursLabel.Text = "Change Panel colours (RGB)";
+            this.SavePanelColoursButton.Location = new System.Drawing.Point(140, 17);
+            this.SavePanelColoursButton.Name = "SavePanelColoursButton";
+            this.SavePanelColoursButton.Size = new System.Drawing.Size(128, 23);
+            this.SavePanelColoursButton.TabIndex = 4;
+            this.SavePanelColoursButton.Text = "Save and Apply";
+            this.SavePanelColoursButton.UseVisualStyleBackColor = true;
+            this.SavePanelColoursButton.Click += new System.EventHandler(this.SavePanelColoursButton_Click);
+            // 
+            // CustomPanelsColourRGB_B
+            // 
+            this.CustomPanelsColourRGB_B.Location = new System.Drawing.Point(95, 21);
+            this.CustomPanelsColourRGB_B.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.CustomPanelsColourRGB_B.Name = "CustomPanelsColourRGB_B";
+            this.CustomPanelsColourRGB_B.Size = new System.Drawing.Size(38, 20);
+            this.CustomPanelsColourRGB_B.TabIndex = 3;
+            // 
+            // CustomPanelsColourRGB_G
+            // 
+            this.CustomPanelsColourRGB_G.Location = new System.Drawing.Point(51, 21);
+            this.CustomPanelsColourRGB_G.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.CustomPanelsColourRGB_G.Name = "CustomPanelsColourRGB_G";
+            this.CustomPanelsColourRGB_G.Size = new System.Drawing.Size(38, 20);
+            this.CustomPanelsColourRGB_G.TabIndex = 2;
             // 
             // CustomPanelsColourRGB_R
             // 
@@ -273,39 +305,40 @@
             0,
             0});
             // 
-            // CustomPanelsColourRGB_G
+            // CustomPanelColoursLabel
             // 
-            this.CustomPanelsColourRGB_G.Location = new System.Drawing.Point(51, 21);
-            this.CustomPanelsColourRGB_G.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.CustomPanelsColourRGB_G.Name = "CustomPanelsColourRGB_G";
-            this.CustomPanelsColourRGB_G.Size = new System.Drawing.Size(38, 20);
-            this.CustomPanelsColourRGB_G.TabIndex = 2;
+            this.CustomPanelColoursLabel.AutoSize = true;
+            this.CustomPanelColoursLabel.Location = new System.Drawing.Point(4, 4);
+            this.CustomPanelColoursLabel.Name = "CustomPanelColoursLabel";
+            this.CustomPanelColoursLabel.Size = new System.Drawing.Size(143, 13);
+            this.CustomPanelColoursLabel.TabIndex = 0;
+            this.CustomPanelColoursLabel.Text = "Change Panel colours (RGB)";
             // 
-            // CustomPanelsColourRGB_B
+            // ResetHistoryButtonTabeLayout
             // 
-            this.CustomPanelsColourRGB_B.Location = new System.Drawing.Point(95, 21);
-            this.CustomPanelsColourRGB_B.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.CustomPanelsColourRGB_B.Name = "CustomPanelsColourRGB_B";
-            this.CustomPanelsColourRGB_B.Size = new System.Drawing.Size(38, 20);
-            this.CustomPanelsColourRGB_B.TabIndex = 3;
+            this.ResetHistoryButtonTabeLayout.ColumnCount = 1;
+            this.ResetHistoryButtonTabeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ResetHistoryButtonTabeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ResetHistoryButtonTabeLayout.Controls.Add(this.ResetHistoryButton, 0, 0);
+            this.ResetHistoryButtonTabeLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResetHistoryButtonTabeLayout.Location = new System.Drawing.Point(3, 123);
+            this.ResetHistoryButtonTabeLayout.Name = "ResetHistoryButtonTabeLayout";
+            this.ResetHistoryButtonTabeLayout.RowCount = 1;
+            this.ResetHistoryButtonTabeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ResetHistoryButtonTabeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ResetHistoryButtonTabeLayout.Size = new System.Drawing.Size(274, 29);
+            this.ResetHistoryButtonTabeLayout.TabIndex = 4;
             // 
-            // SavePanelColoursButton
+            // ResetHistoryButton
             // 
-            this.SavePanelColoursButton.Location = new System.Drawing.Point(140, 17);
-            this.SavePanelColoursButton.Name = "SavePanelColoursButton";
-            this.SavePanelColoursButton.Size = new System.Drawing.Size(128, 23);
-            this.SavePanelColoursButton.TabIndex = 4;
-            this.SavePanelColoursButton.Text = "Save and Apply";
-            this.SavePanelColoursButton.UseVisualStyleBackColor = true;
-            this.SavePanelColoursButton.Click += new System.EventHandler(this.SavePanelColoursButton_Click);
+            this.ResetHistoryButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResetHistoryButton.Location = new System.Drawing.Point(3, 3);
+            this.ResetHistoryButton.Name = "ResetHistoryButton";
+            this.ResetHistoryButton.Size = new System.Drawing.Size(268, 23);
+            this.ResetHistoryButton.TabIndex = 0;
+            this.ResetHistoryButton.Text = "Reset History";
+            this.ResetHistoryButton.UseVisualStyleBackColor = true;
+            this.ResetHistoryButton.Click += new System.EventHandler(this.ResetHistoryButton_Click);
             // 
             // Settings_Form
             // 
@@ -326,9 +359,10 @@
             this.SetCUstomTitleStringLayoutPanel.PerformLayout();
             this.CustomPanelColoursPanel.ResumeLayout(false);
             this.CustomPanelColoursPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_R)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_G)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_B)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_G)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomPanelsColourRGB_R)).EndInit();
+            this.ResetHistoryButtonTabeLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -356,5 +390,7 @@
         private System.Windows.Forms.NumericUpDown CustomPanelsColourRGB_G;
         private System.Windows.Forms.NumericUpDown CustomPanelsColourRGB_R;
         private System.Windows.Forms.Label CustomPanelColoursLabel;
+        private System.Windows.Forms.TableLayoutPanel ResetHistoryButtonTabeLayout;
+        private System.Windows.Forms.Button ResetHistoryButton;
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BackPanel = new System.Windows.Forms.Panel();
             this.BrowserTabHostPannel = new System.Windows.Forms.Panel();
             this.BrowserTabControl = new System.Windows.Forms.TabControl();
@@ -42,6 +43,7 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.PageSourceEditorButton = new System.Windows.Forms.Button();
+            this.HistoryButton = new System.Windows.Forms.Button();
             this.URLHostPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.UrlBox = new System.Windows.Forms.TextBox();
@@ -114,10 +116,12 @@
             this.tableLayoutPanel1.Controls.Add(this.BackButton, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.SettingsButton, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.PageSourceEditorButton, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.HistoryButton, 0, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -218,6 +222,17 @@
             this.PageSourceEditorButton.UseVisualStyleBackColor = true;
             this.PageSourceEditorButton.Click += new System.EventHandler(this.PageSourceEditorButton_Click);
             // 
+            // HistoryButton
+            // 
+            this.HistoryButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HistoryButton.Location = new System.Drawing.Point(3, 243);
+            this.HistoryButton.Name = "HistoryButton";
+            this.HistoryButton.Size = new System.Drawing.Size(69, 24);
+            this.HistoryButton.TabIndex = 8;
+            this.HistoryButton.Text = "History";
+            this.HistoryButton.UseVisualStyleBackColor = true;
+            this.HistoryButton.Click += new System.EventHandler(this.HistoryButton_Click);
+            // 
             // URLHostPanel
             // 
             this.URLHostPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -231,12 +246,12 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel2.Controls.Add(this.UrlBox, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.UrlGoButton, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.MediaSearchItButton, 3, 1);
@@ -258,14 +273,14 @@
             this.UrlBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UrlBox.Location = new System.Drawing.Point(3, 17);
             this.UrlBox.Name = "UrlBox";
-            this.UrlBox.Size = new System.Drawing.Size(281, 20);
+            this.UrlBox.Size = new System.Drawing.Size(636, 20);
             this.UrlBox.TabIndex = 0;
             this.UrlBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UrlBox_KeyDown);
             // 
             // UrlGoButton
             // 
             this.UrlGoButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UrlGoButton.Location = new System.Drawing.Point(290, 17);
+            this.UrlGoButton.Location = new System.Drawing.Point(645, 17);
             this.UrlGoButton.Name = "UrlGoButton";
             this.UrlGoButton.Size = new System.Drawing.Size(74, 24);
             this.UrlGoButton.TabIndex = 1;
@@ -276,7 +291,7 @@
             // MediaSearchItButton
             // 
             this.MediaSearchItButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MediaSearchItButton.Location = new System.Drawing.Point(657, 17);
+            this.MediaSearchItButton.Location = new System.Drawing.Point(832, 17);
             this.MediaSearchItButton.Name = "MediaSearchItButton";
             this.MediaSearchItButton.Size = new System.Drawing.Size(74, 24);
             this.MediaSearchItButton.TabIndex = 2;
@@ -287,9 +302,9 @@
             // SearchItButton
             // 
             this.SearchItButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SearchItButton.Location = new System.Drawing.Point(1024, 17);
+            this.SearchItButton.Location = new System.Drawing.Point(1019, 17);
             this.SearchItButton.Name = "SearchItButton";
-            this.SearchItButton.Size = new System.Drawing.Size(74, 24);
+            this.SearchItButton.Size = new System.Drawing.Size(79, 24);
             this.SearchItButton.TabIndex = 3;
             this.SearchItButton.Text = "button2";
             this.SearchItButton.UseVisualStyleBackColor = true;
@@ -298,18 +313,18 @@
             // MediaSearchItBox
             // 
             this.MediaSearchItBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MediaSearchItBox.Location = new System.Drawing.Point(370, 17);
+            this.MediaSearchItBox.Location = new System.Drawing.Point(725, 17);
             this.MediaSearchItBox.Name = "MediaSearchItBox";
-            this.MediaSearchItBox.Size = new System.Drawing.Size(281, 20);
+            this.MediaSearchItBox.Size = new System.Drawing.Size(101, 20);
             this.MediaSearchItBox.TabIndex = 4;
             this.MediaSearchItBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MediaSearchItBox_KeyDown);
             // 
             // SearchItBox
             // 
             this.SearchItBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SearchItBox.Location = new System.Drawing.Point(737, 17);
+            this.SearchItBox.Location = new System.Drawing.Point(912, 17);
             this.SearchItBox.Name = "SearchItBox";
-            this.SearchItBox.Size = new System.Drawing.Size(281, 20);
+            this.SearchItBox.Size = new System.Drawing.Size(101, 20);
             this.SearchItBox.TabIndex = 5;
             this.SearchItBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchItBox_KeyDown);
             // 
@@ -343,6 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 541);
             this.Controls.Add(this.BackPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -384,6 +400,7 @@
         private System.Windows.Forms.Timer UpdateSearchButtonText;
         private System.Windows.Forms.Timer UpdateMiscSettingsTimer;
         private System.Windows.Forms.Timer UpdateSiteTitleTimer;
+        private System.Windows.Forms.Button HistoryButton;
     }
 }
 

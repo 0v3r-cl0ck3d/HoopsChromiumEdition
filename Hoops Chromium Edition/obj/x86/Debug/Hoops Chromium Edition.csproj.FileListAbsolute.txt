@@ -1,0 +1,21 @@
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.dll
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\Hoops Chromium Edition.exe.config
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\Hoops Chromium Edition.exe
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\Hoops Chromium Edition.pdb
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.Core.dll
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.OffScreen.dll
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.WinForms.dll
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.OffScreen.pdb
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.OffScreen.xml
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.WinForms.pdb
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.WinForms.xml
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.pdb
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.xml
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.Core.pdb
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\bin\x86\Debug\CefSharp.Core.xml
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\obj\x86\Debug\Hoops_Chromium_Edition.Form1.resources
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\obj\x86\Debug\Hoops_Chromium_Edition.Properties.Resources.resources
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\obj\x86\Debug\Hoops_Chromium_Edition.Settings_Form.resources
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\obj\x86\Debug\Hoops Chromium Edition.csproj.GenerateResource.Cache
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\obj\x86\Debug\Hoops Chromium Edition.exe
+C:\Users\0v3r cl0ck3d\documents\visual studio 2015\Projects\Hoops Chromium Edition\Hoops Chromium Edition\obj\x86\Debug\Hoops Chromium Edition.pdb

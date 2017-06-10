@@ -130,5 +130,17 @@ namespace Hoops_Chromium_Edition.Properties {
                 this["MainPanelColour_B"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("33")]
+        public decimal UrlBoxSizeInPercent {
+            get {
+                return ((decimal)(this["UrlBoxSizeInPercent"]));
+            }
+            set {
+                this["UrlBoxSizeInPercent"] = value;
+            }
+        }
     }
 }

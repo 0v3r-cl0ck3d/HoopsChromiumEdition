@@ -178,6 +178,7 @@ namespace Hoops_Chromium_Edition
                     fs.WriteByte(Convert.ToByte(Convert.ToByte(CustomPanelsColourRGB_G.Value)));
                     fs.Position = 0x00002;
                     fs.WriteByte(Convert.ToByte(Convert.ToByte(CustomPanelsColourRGB_B.Value)));
+                    fs.Close();
                 }
             }
             catch (Exception)
@@ -186,6 +187,26 @@ namespace Hoops_Chromium_Edition
             }
 
 
+        }
+
+        private void MiscSettingsLayoutPannel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //Resets History
+        private void ResetHistoryButton_Click(object sender, EventArgs e)
+        {
+            String HistoryTabFileURL = Environment.CurrentDirectory + "\\history.html";
+            if (File.Exists(HistoryTabFileURL))
+            {
+                // Write the history template
+                System.IO.StreamWriter file = new System.IO.StreamWriter(HistoryTabFileURL);
+                file.WriteLine("<HTML>");
+                file.WriteLine("<title>History</title>");
+                file.WriteLine("<p><B1>HISTORY:</B1></p>");
+                file.Close();
+            }
         }
     }
     }

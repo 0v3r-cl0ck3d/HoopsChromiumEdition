@@ -11,6 +11,7 @@ using CefSharp;
 using CefSharp.WinForms;
 using Microsoft.Win32;
 using System.IO;
+using System.Net;
 
 namespace Hoops_Chromium_Edition
 {
@@ -20,17 +21,17 @@ namespace Hoops_Chromium_Edition
         {
             InitializeComponent();
             //InitBrowser();
-        }
+    }
 
-
-        private void Form1_Load(object sender, EventArgs e)
+        string HomePageURL = "http://google.com";
+    private void Form1_Load(object sender, EventArgs e)
         {
             //Sets Main Window Text
             this.Text = "Hoops Chromium Edition | " + ProductVersion.ToString() + " Alpha";
             //Init load settings
             InitLoadSettings();
             //Create first tab
-            InitNewTab();
+            InitNewTab(ref HomePageURL);
         }
 
 
@@ -76,11 +77,22 @@ namespace Hoops_Chromium_Edition
                 }
             }
 
+            
             //sets custom title text
             Hoops_Chromium_Edition.Properties.Settings.Default.CustomTitleText = CustomTitleString.ToString();
             this.Text = "Hoops Chromium Edition | " + ProductVersion.ToString() + " Alpha | " + CustomTitleString.ToString();
 
-
+            //Write history page
+            String HistoryTabFileURL = Environment.CurrentDirectory + "\\history.html";
+            if (!File.Exists(HistoryTabFileURL))
+            {
+                // Write the history template
+                System.IO.StreamWriter file = new System.IO.StreamWriter(HistoryTabFileURL);
+                file.WriteLine("<HTML>");
+                file.WriteLine("<title>History</title>");
+                file.WriteLine("<p><B1>HISTORY:</B1></p>");
+                file.Close();
+            }
 
             //sets custom panel colours
             try
@@ -97,8 +109,8 @@ namespace Hoops_Chromium_Edition
                     Hoops_Chromium_Edition.Properties.Settings.Default.MainPanelColour_G = Convert.ToInt32(fs.ReadByte());
                     fs.Position = 0x00002;
                     Hoops_Chromium_Edition.Properties.Settings.Default.MainPanelColour_B = Convert.ToInt32(fs.ReadByte());
+                    fs.Close();
                 }
-
 
 
 
@@ -176,6 +188,18 @@ namespace Hoops_Chromium_Edition
 
             SearchItButton.Text = Hoops_Chromium_Edition.Properties.Settings.Default.SearchItButtonText;
             MediaSearchItButton.Text = Hoops_Chromium_Edition.Properties.Settings.Default.MediaItButtonText;
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
 
@@ -201,7 +225,7 @@ namespace Hoops_Chromium_Edition
     */
 
 
-        public void InitNewTab()
+        public void InitNewTab(ref string URLTOLOAD)
         {
             //Creates new tab
             BrowserTabControl.TabPages.Add("New Tab");
@@ -215,13 +239,12 @@ namespace Hoops_Chromium_Edition
             //MessageBox.Show(BrowserTabControl.SelectedTab.Controls.Count.ToString());
             //Adds Browser controll to new tab
             //Cef.Initialize(new CefSettings());
-            browser = new ChromiumWebBrowser("www.google.com");
+            browser = new ChromiumWebBrowser(URLTOLOAD);
             EmbedPanel.Controls.Add(browser);
             //BrowserTabControl.SelectedTab.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
             //gets Browser Interact before invokes
             ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
-
 
 
             //Sets some misc vars
@@ -234,14 +257,13 @@ namespace Hoops_Chromium_Edition
             browser.Controls.Add(BrowserIndexId);
             BrowserIndexId.Value = Convert.ToInt32(BrowserTabControl.SelectedIndex);
             BrowserIndexId.Hide();
-
             //Invoker hooks
 
 
             browser.AddressChanged += UrlBoxUpdater;
             browser.TitleChanged += OnBrowserTitleChanged;
-
         }
+
 
         //Update url box when url changes
         public void UrlBoxUpdater(object sender, AddressChangedEventArgs e)
@@ -250,7 +272,6 @@ namespace Hoops_Chromium_Edition
             {
                 browser.Text = e.Address;
                 IsNewlyUpdated = true;
-
             }
             ));
         }
@@ -260,10 +281,47 @@ namespace Hoops_Chromium_Edition
         {
             this.Invoke(new MethodInvoker(() =>
             {
-                TextBox BrowserSiteTitleBox = browser.Controls.OfType<TextBox>().First();
+
+                //Original do not edit
+                /*
+                 TextBox BrowserSiteTitleBox = browser.Controls.OfType<TextBox>().First();
                 NumericUpDown BrowserIndexId = browser.Controls.OfType<NumericUpDown>().First();
                 BrowserSiteTitleBox.Text = e.Title.ToString();
                 //BrowserIndexId.Value = Convert.ToInt32(BrowserTabControl.SelectedIndex);
+                 */
+
+
+                //Fix?
+                NumericUpDown BrowserIndexId = browser.Controls.OfType<NumericUpDown>().First();
+
+                Panel EmbedPanelInteract = BrowserTabControl.TabPages[Convert.ToInt32(browser.Controls.OfType<NumericUpDown>().First().Value)].Controls.OfType<Panel>().First();
+                ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
+                TextBox BrowserSiteTitleBox = BrowserInteract.Controls.OfType<TextBox>().First();
+                BrowserSiteTitleBox.Text = e.Title.ToString();
+
+
+
+                /*
+                //Some Whacky Bullshit
+                Panel EmbedPanelInteract = BrowserTabControl.TabPages[Convert.ToInt32(browser.Controls.OfType<NumericUpDown>().First().Value)].Controls.OfType<Panel>().First();
+                ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
+                NumericUpDown BrowserIndexId = browser.Controls.OfType<NumericUpDown>().First();
+                TextBox BrowserSiteTitleBox = BrowserInteract.Controls.OfType<TextBox>().First();
+                BrowserSiteTitleBox.Text = e.Title.ToString();
+                */
+
+
+                //Update history
+
+                //Writes link to histroy
+                String HistoryTabFileURL = Environment.CurrentDirectory + "\\history.html";
+                // Write the history template
+                System.IO.StreamWriter file = File.AppendText(HistoryTabFileURL);
+
+                file.WriteLine("<p>" + System.DateTime.Now.ToString() + " " + "<a href=" + BrowserInteract.Text.ToString() + ">" + BrowserSiteTitleBox.Text.ToString() + "</a></p>");
+                file.Close();
+
+
                 NewSiteTitle = true;
             }
             ));
@@ -277,7 +335,7 @@ namespace Hoops_Chromium_Edition
         {
             Panel EmbedPanelInteract = BrowserTabControl.SelectedTab.Controls.OfType<Panel>().First();
             ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
-            BrowserInteract.Load("www.google.com");
+            BrowserInteract.Load(HomePageURL.ToString());
         }
 
         //Refresh
@@ -300,14 +358,14 @@ namespace Hoops_Chromium_Edition
             }
             catch (Exception)
             {
-                BrowserInteract.Load("<HTML><P>Error</P></HTML>");
+                BrowserInteract.LoadHtml("<HTML><P>Error</P></HTML>");
             }
         }
 
         //New tab button 
         private void NewTabButton_Click(object sender, EventArgs e)
         {
-            InitNewTab();
+            InitNewTab(ref HomePageURL);
         }
 
         //Remove tab button
@@ -358,11 +416,12 @@ namespace Hoops_Chromium_Edition
         //url updater timer
         private void UpdateUrlBoxOnTabChange_Tick(object sender, EventArgs e)
         {
-            Panel EmbedPanelInteract = BrowserTabControl.SelectedTab.Controls.OfType<Panel>().First();
-            ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
+            
 
             try
             {
+                Panel EmbedPanelInteract = BrowserTabControl.SelectedTab.Controls.OfType<Panel>().First();
+                ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
                 if (TabIdNum.ToString() != BrowserTabControl.SelectedIndex.ToString())
                 {
                     UrlBox.Text = BrowserInteract.Text.ToString();
@@ -376,7 +435,7 @@ namespace Hoops_Chromium_Edition
             }
             catch (Exception)
             {
-                //do nothing
+                InitNewTab(ref HomePageURL);
             }
         }
 
@@ -401,6 +460,18 @@ namespace Hoops_Chromium_Edition
                         if (BrowserTabControl.TabPages[Convert.ToInt32(BrowserIndexId.Value)].Text != BrowserSiteTitleBox.Text.ToString())
                         {
                             BrowserTabControl.TabPages[Convert.ToInt32(BrowserIndexId.Value)].Text = BrowserSiteTitleBox.Text.ToString();
+                            NewSiteTitle = false;
+                            //set fave ico
+                            try
+                            {
+
+                            }
+                            catch (Exception)
+                            {
+
+                                throw;
+                            }
+
                         }
                     }
                     catch (Exception)
@@ -474,7 +545,7 @@ namespace Hoops_Chromium_Edition
                 //go to url
                 try
                 {
-                    BrowserInteract.Load(Hoops_Chromium_Edition.Properties.Settings.Default.MediaItUrlString + SearchItBox.Text.ToString());
+                    BrowserInteract.Load(Hoops_Chromium_Edition.Properties.Settings.Default.SearchItUrlString + SearchItBox.Text.ToString());
                 }
                 catch (Exception)
                 {
@@ -543,7 +614,17 @@ namespace Hoops_Chromium_Edition
 
         private void UpdateSearchButtonText_Tick(object sender, EventArgs e)
         {
+            MediaSearchItButton.Text = Hoops_Chromium_Edition.Properties.Settings.Default.MediaItButtonText;
+            SearchItButton.Text = Hoops_Chromium_Edition.Properties.Settings.Default.SearchItButtonText;
+        }
 
+        //Opens History Page
+        private void HistoryButton_Click(object sender, EventArgs e)
+        {
+            string HistoryURL = Environment.CurrentDirectory + "\\history.html";
+            InitNewTab(ref HistoryURL);
+            Panel EmbedPanelInteract = BrowserTabControl.SelectedTab.Controls.OfType<Panel>().First();
+            ChromiumWebBrowser BrowserInteract = EmbedPanelInteract.Controls.OfType<ChromiumWebBrowser>().First();
         }
     }
 }
